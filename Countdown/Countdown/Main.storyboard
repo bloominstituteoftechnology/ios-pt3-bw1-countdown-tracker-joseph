@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q4y-px-21f">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Countdown-->
+        <scene sceneID="auJ-cM-uqq">
+            <objects>
+                <tableViewController id="cZK-es-Khx" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="05G-ow-1tI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimerCell" id="aj0-WU-Tpn">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aj0-WU-Tpn" id="HyD-F2-r7b">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cZK-es-Khx" id="PAE-hs-AtK"/>
+                            <outlet property="delegate" destination="cZK-es-Khx" id="1Yw-sw-AS8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Countdown" id="lF6-zD-xD6">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="L4A-GH-iVA">
+                            <connections>
+                                <segue destination="jMX-7T-OS0" kind="presentation" id="LPr-4e-art"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="l1g-Dd-wra">
+                            <connections>
+                                <segue destination="ZvF-Ho-WNT" kind="show" id="nMq-YB-WyF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C8G-VI-Rne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="-3227"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ddv-zH-bYy">
+            <objects>
+                <viewController id="jMX-7T-OS0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BgB-an-bJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oK8-PW-0wn">
+                                <rect key="frame" x="0.0" y="-126" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="Uh1-bD-srw"/>
+                                    <barButtonItem width="305" style="plain" systemItem="fixedSpace" id="dnx-wE-aTF"/>
+                                    <barButtonItem title="Save" id="1DC-GA-Zvm"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="H3M-ur-Khd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tx-so-qYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="-2522"/>
+        </scene>
+        <!--Add a countdown-->
+        <scene sceneID="yVX-rf-UqK">
+            <objects>
+                <viewController id="ZvF-Ho-WNT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ucv-0l-tql">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-Ga-dhd">
+                                <rect key="frame" x="8" y="162.00000000000003" width="398" height="394.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-fs-a59">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-xc-UYh">
+                                        <rect key="frame" x="0.0" y="28.333333333333343" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96q-Nd-9ER">
+                                        <rect key="frame" x="0.0" y="70.333333333333343" width="398" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="15-30 Characters" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSV-MK-9al">
+                                        <rect key="frame" x="0.0" y="98.666666666666686" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GeU-Jw-InH">
+                                        <rect key="frame" x="0.0" y="140.66666666666669" width="398" height="254"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="Vab-Ft-SEF"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="Cne-Is-0MI"/>
+                                    </scrollView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MUK-Ga-dhd" firstAttribute="leading" secondItem="luU-sP-XAx" secondAttribute="leading" constant="8" id="Ab4-Wc-cg3"/>
+                            <constraint firstItem="MUK-Ga-dhd" firstAttribute="centerX" secondItem="Ucv-0l-tql" secondAttribute="centerX" id="FQG-fQ-6xR"/>
+                            <constraint firstItem="MUK-Ga-dhd" firstAttribute="top" secondItem="luU-sP-XAx" secondAttribute="top" constant="66" id="cQD-tN-bDq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="luU-sP-XAx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a countdown" id="wIn-sU-puv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJc-W3-Oat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="-3227"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rpv-uY-aaR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q4y-px-21f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Vjz-Fe-drM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cZK-es-Khx" kind="relationship" relationship="rootViewController" id="MbU-2a-S9Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFd-TC-EZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38" y="-3226"/>
+        </scene>
+    </scenes>
+</document>
