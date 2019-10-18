@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83387F2A23592BCE00C1A07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83387F2923592BCE00C1A07D /* Main.storyboard */; };
+		8345C20B23596662007A197E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345C20A23596662007A197E /* Timer.swift */; };
 		83EB4A312357D4FF00893BFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB4A302357D4FF00893BFF /* AppDelegate.swift */; };
 		83EB4A332357D4FF00893BFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB4A322357D4FF00893BFF /* SceneDelegate.swift */; };
 		83EB4A3A2357D50200893BFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EB4A392357D50200893BFF /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		83387F2923592BCE00C1A07D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8345C20A23596662007A197E /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		83EB4A2D2357D4FF00893BFF /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EB4A302357D4FF00893BFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EB4A322357D4FF00893BFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8345C2092359664C007A197E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8345C20A23596662007A197E /* Timer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		83EB4A242357D4FF00893BFF = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		83EB4A2F2357D4FF00893BFF /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
+				8345C2092359664C007A197E /* Models */,
 				83EB4A302357D4FF00893BFF /* AppDelegate.swift */,
 				83EB4A322357D4FF00893BFF /* SceneDelegate.swift */,
 				83387F2923592BCE00C1A07D /* Main.storyboard */,
@@ -256,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8345C20B23596662007A197E /* Timer.swift in Sources */,
 				83EB4A312357D4FF00893BFF /* AppDelegate.swift in Sources */,
 				83EB4A332357D4FF00893BFF /* SceneDelegate.swift in Sources */,
 			);
