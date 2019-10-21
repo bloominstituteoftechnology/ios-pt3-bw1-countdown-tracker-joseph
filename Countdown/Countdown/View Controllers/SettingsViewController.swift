@@ -10,13 +10,19 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+    }
+    @IBAction func purchaseButtonPressed(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
