@@ -10,13 +10,13 @@
         <!--Countdown-->
         <scene sceneID="auJ-cM-uqq">
             <objects>
-                <tableViewController id="cZK-es-Khx" sceneMemberID="viewController">
+                <tableViewController id="cZK-es-Khx" customClass="CountdownTableViewController" customModule="Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="05G-ow-1tI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimerCell" id="aj0-WU-Tpn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountdownCell" id="aj0-WU-Tpn" customClass="CountdownTableViewCell" customModule="Countdown" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aj0-WU-Tpn" id="HyD-F2-r7b">
@@ -33,7 +33,7 @@
                     <navigationItem key="navigationItem" title="Countdown" id="lF6-zD-xD6">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="L4A-GH-iVA">
                             <connections>
-                                <segue destination="jMX-7T-OS0" kind="presentation" id="LPr-4e-art"/>
+                                <segue destination="jMX-7T-OS0" kind="show" id="LPr-4e-art"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="l1g-Dd-wra">
@@ -52,7 +52,7 @@
             <objects>
                 <viewController id="jMX-7T-OS0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BgB-an-bJ8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalCentering" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="NgI-y1-lsN">
@@ -86,7 +86,7 @@
                                 </subviews>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oK8-PW-0wn">
-                                <rect key="frame" x="0.0" y="-126" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="-106" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="Uh1-bD-srw"/>
@@ -102,6 +102,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="H3M-ur-Khd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cyn-37-Qy3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tx-so-qYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +111,7 @@
         <!--Add a countdown-->
         <scene sceneID="yVX-rf-UqK">
             <objects>
-                <viewController id="ZvF-Ho-WNT" sceneMemberID="viewController">
+                <viewController id="ZvF-Ho-WNT" customClass="AddEditViewController" customModule="Countdown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ucv-0l-tql">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +142,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rcA-c0-xgQ">
-                                        <rect key="frame" x="0.0" y="141" width="398" height="216"/>
+                                        <rect key="frame" x="0.0" y="140.66666666666669" width="398" height="216"/>
                                     </datePicker>
                                 </subviews>
                             </stackView>
