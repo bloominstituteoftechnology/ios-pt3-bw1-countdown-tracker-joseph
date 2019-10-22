@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol AddCountdownDelegate {
-    func countdownWasAdded(_ countdown: Countdown)
-}
+//protocol AddCountdownDelegate {
+//    func countdownWasAdded(_ countdown: Countdown)
+//}
 
 class AddEditViewController: UIViewController {
 
