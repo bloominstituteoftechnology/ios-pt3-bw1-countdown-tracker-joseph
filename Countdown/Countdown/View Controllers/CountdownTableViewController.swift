@@ -9,6 +9,10 @@
 import UIKit
 
 class CountdownTableViewController: UITableViewController {
+    
+    //MARK: Properties
+    
+    var countdownList: [Countdown] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

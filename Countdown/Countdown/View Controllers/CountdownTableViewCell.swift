@@ -10,15 +10,17 @@ import UIKit
 
 class CountdownTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var countdownNameLabel: UILabel!
+    @IBOutlet weak var timeLeftLabel: UILabel!
+    
+    var countdown: Countdown? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    //FIXME: create update views method
+    private func updateViews() {
+        
     }
 
 }

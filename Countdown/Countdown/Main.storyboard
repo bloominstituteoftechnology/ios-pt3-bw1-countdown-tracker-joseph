@@ -16,13 +16,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountdownCell" id="aj0-WU-Tpn" customClass="CountdownTableViewCell" customModule="Countdown" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountdownCell" rowHeight="50" id="aj0-WU-Tpn" customClass="CountdownTableViewCell" customModule="Countdown" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aj0-WU-Tpn" id="HyD-F2-r7b">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hCi-oy-Sdm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CP-35-W4w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="191.33333333333334" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvG-2G-6hU">
+                                                    <rect key="frame" x="191.33333333333337" y="0.0" width="222.66666666666663" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8CP-35-W4w" firstAttribute="leading" secondItem="hCi-oy-Sdm" secondAttribute="leadingMargin" id="5dc-Wp-kYt"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="hCi-oy-Sdm" secondAttribute="bottom" id="LIs-N9-AE1"/>
+                                        <constraint firstItem="hCi-oy-Sdm" firstAttribute="top" secondItem="HyD-F2-r7b" secondAttribute="top" id="MHv-O8-yuI"/>
+                                        <constraint firstAttribute="trailing" secondItem="hCi-oy-Sdm" secondAttribute="trailing" id="bx4-kc-vAH"/>
+                                        <constraint firstItem="hCi-oy-Sdm" firstAttribute="leading" secondItem="HyD-F2-r7b" secondAttribute="leading" id="rzo-hN-X7f"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="countdownNameLabel" destination="8CP-35-W4w" id="Cbb-kR-OqK"/>
+                                    <outlet property="timeLeftLabel" destination="PvG-2G-6hU" id="n0k-Ua-tzY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
