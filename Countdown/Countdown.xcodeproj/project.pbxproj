@@ -12,7 +12,7 @@
 		83346967235D436F001F533E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346966235D436F001F533E /* SettingsViewController.swift */; };
 		83346969235D437E001F533E /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346968235D437E001F533E /* CountdownTableViewCell.swift */; };
 		83387F2A23592BCE00C1A07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83387F2923592BCE00C1A07D /* Main.storyboard */; };
-		8345C20B23596662007A197E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345C20A23596662007A197E /* Timer.swift */; };
+		8345C20B23596662007A197E /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8345C20A23596662007A197E /* Countdown.swift */; };
 		83EB4A312357D4FF00893BFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB4A302357D4FF00893BFF /* AppDelegate.swift */; };
 		83EB4A332357D4FF00893BFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB4A322357D4FF00893BFF /* SceneDelegate.swift */; };
 		83EB4A3A2357D50200893BFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EB4A392357D50200893BFF /* Assets.xcassets */; };
@@ -44,7 +44,7 @@
 		83346966235D436F001F533E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		83346968235D437E001F533E /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
 		83387F2923592BCE00C1A07D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8345C20A23596662007A197E /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		8345C20A23596662007A197E /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		83EB4A2D2357D4FF00893BFF /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EB4A302357D4FF00893BFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EB4A322357D4FF00893BFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		8345C2092359664C007A197E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8345C20A23596662007A197E /* Timer.swift */,
+				8345C20A23596662007A197E /* Countdown.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8345C20B23596662007A197E /* Timer.swift in Sources */,
+				8345C20B23596662007A197E /* Countdown.swift in Sources */,
 				83346965235D4364001F533E /* AddEditViewController.swift in Sources */,
 				83346963235D4356001F533E /* CountdownTableViewController.swift in Sources */,
 				83EB4A312357D4FF00893BFF /* AppDelegate.swift in Sources */,

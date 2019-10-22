@@ -1,5 +1,5 @@
 //
-//  Timer.swift
+//  Countdown.swift
 //  Countdown
 //
 //  Created by Joseph Rogers on 10/17/19.
@@ -23,6 +23,8 @@ enum CountdownState {
 
 class Countdown {
     
+    var name: String?
+    var details: String?
     // used to inform delegate of countdown's current state
     // and when countdown has finished
     weak var delegate: CountdownDelegate?

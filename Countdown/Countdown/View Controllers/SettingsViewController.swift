@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
     @IBOutlet weak var pickerView: UIPickerView!
     
     override func viewDidLoad() {
@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
+    
     }
     @IBAction func purchaseButtonPressed(_ sender: UIButton) {
     }
