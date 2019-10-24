@@ -53,7 +53,7 @@ class Countdown {
     // current state of countdown
     private(set) var state: CountdownState
     
-    init() {
+    init(name: String?, details: String?) {
         timer = nil
         stopDate = nil
         duration = 0
