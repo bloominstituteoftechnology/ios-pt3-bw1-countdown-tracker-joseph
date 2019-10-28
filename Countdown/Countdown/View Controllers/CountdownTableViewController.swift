@@ -45,8 +45,15 @@ class CountdownTableViewController: UITableViewController {
         if segue.identifier == "AddSegue" {
             if let addCountdownVC = segue.destination as? AddEditViewController {
                 addCountdownVC.delegate = self
-                
             }
+        } else if segue.identifier == "TappedCell" {
+            guard let VC = segue.destination as? AddEditViewController, let indexPath = tableView.indexPathForSelectedRow else {return}
+            VC.delegate = self
+            VC.countdownToUse = countdownList[indexPath.row]
+            
+//            if let editCountdownVC = segue.destination as? AddEditViewController {
+//                editCountdownVC.delegate = self
+//            }
         }
     }
 
@@ -56,7 +63,7 @@ class CountdownTableViewController: UITableViewController {
         cell.countdown = countdown
     cell.countdownNameLabel.text = countdownList[indexPath.row].name
         //cell.countdownNameLabel.text  = "it works"
-        cell.timeLeftLabel.text = String(countdownList[indexPath.row].duration)
+       
             return cell
     }
 

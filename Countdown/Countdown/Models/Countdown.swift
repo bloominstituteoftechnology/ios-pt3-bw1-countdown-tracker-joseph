@@ -24,9 +24,9 @@ enum CountdownState {
 class Countdown {
     
     var name: String?
-    var details: String?
+    var countdownExistingNotes: String?
     
-    var dateTime: Date?
+  
     // used to inform delegate of countdown's current state
     // and when countdown has finished
     weak var delegate: CountdownDelegate?
@@ -55,14 +55,13 @@ class Countdown {
     // current state of countdown
     private(set) var state: CountdownState
     
-    init(name: String?, details: String?, dateTime: Date? = nil) {
+    init(name: String?, countdownExistingNotes: String?) {
         self.timer = nil
         self.stopDate = nil
         self.duration = 0
         self.state = .reset
-        self.dateTime = dateTime
         self.name = name
-        self.details = details
+        self.countdownExistingNotes = countdownExistingNotes
     }
     
     func start() {
