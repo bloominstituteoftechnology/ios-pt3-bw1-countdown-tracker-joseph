@@ -41,6 +41,14 @@ class CountdownController {
          saveToPersistentStore()
          return countdownInfo[i]
      }
+    
+    func deleteInfo(_ info: CountdownCodableInfo) {
+//        guard let i = books.firstIndex(of: book) else { return }
+//        books.remove(at: i)
+        guard let i = countdownInfo.firstIndex(of: info) else {return}
+        countdownInfo.remove(at: i)
+        saveToPersistentStore()
+    }
      
     
     private func saveToPersistentStore() {
