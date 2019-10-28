@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol CountdownDelegate: AnyObject {
     func countdownDidUpdate(timeRemaining: TimeInterval)
     func countdownDidFinish()
@@ -23,12 +22,6 @@ enum CountdownState {
 
 class Countdown {
     
-    var name: String?
-    var countdownExistingNotes: String?
-    
-  
-    // used to inform delegate of countdown's current state
-    // and when countdown has finished
     weak var delegate: CountdownDelegate?
     
     // number of seconds; countdown's starting value
@@ -43,7 +36,6 @@ class Countdown {
             return 0
         }
     }
-    
     // has value only when countdown is active
     // waits a specific period and fires a method on an recurring interval
     private var timer: Timer?
@@ -55,13 +47,11 @@ class Countdown {
     // current state of countdown
     private(set) var state: CountdownState
     
-    init(name: String?, countdownExistingNotes: String?) {
+    init() {
         self.timer = nil
         self.stopDate = nil
         self.duration = 0
         self.state = .reset
-        self.name = name
-        self.countdownExistingNotes = countdownExistingNotes
     }
     
     func start() {
@@ -85,7 +75,6 @@ class Countdown {
         timer = nil
     }
     
-    // called each time the timer object fires
     private func updateTimer(timer: Timer) {
         
         if let stopDate = stopDate {
