@@ -69,6 +69,7 @@ class AddEditViewController: UIViewController {
             nameTextField.text = countdownInfoToUse.name
                 nameTextField.isHidden = true
             detailsTextField.text = "Edit your note here!"
+            nameLabel.text = "Name:" + " " + countdownInfoToUse.name!
             noteDetailView.text = countdownInfoToUse.countdownExistingNotes
         }
     }
