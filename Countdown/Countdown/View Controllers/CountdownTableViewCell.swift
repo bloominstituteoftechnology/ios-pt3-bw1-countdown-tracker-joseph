@@ -12,15 +12,14 @@ class CountdownTableViewCell: UITableViewCell {
 
     @IBOutlet weak var countdownNameLabel: UILabel!
     
-    var countdown: Countdown? {
+    var countdown: CountdownCodableInfo? {
         didSet {
             updateViews()
         }
     }
-    //FIXME: create update views method
+
     private func updateViews() {
         guard let countdown = countdown else {return}
         countdownNameLabel.text = String("Note: \(countdown.name)")
     }
-
 }

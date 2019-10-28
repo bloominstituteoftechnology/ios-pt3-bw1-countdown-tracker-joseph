@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddCountdownDelegate: class {
-    func countdownWasAdded(_ countdown: Countdown)
+    func countdownWasAdded(_ countdown: CountdownCodableInfo)
 }
 
 class AddEditViewController: UIViewController {
@@ -24,9 +24,9 @@ class AddEditViewController: UIViewController {
     
     weak var delegate: AddCountdownDelegate?
     
-    private let countdown = Countdown(name: "", countdownExistingNotes: "")
-    
-    var countdownToUse: Countdown?
+    private let countdownInfo = CountdownCodableInfo(name: "", countdownExistingNotes: "")
+    private let countdown = Countdown()
+    var countdownInfoToUse: CountdownCodableInfo?
     
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -65,20 +65,19 @@ class AddEditViewController: UIViewController {
     }
     
     func setupViews() {
-        if let countdownToUse = countdownToUse {
-            nameLabel.text = countdownToUse.name
-            nameTextField.isHidden = true
+        if let countdownInfoToUse = countdownInfoToUse {
+            nameTextField.text = countdownInfoToUse.name
+                nameTextField.isHidden = true
             detailsTextField.text = "Edit your note here!"
-            noteDetailView.text = countdownToUse.countdownExistingNotes?.description
+            noteDetailView.text = countdownInfoToUse.countdownExistingNotes
         }
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
         countdown.start()
+        createButton.isHidden = true
+        countdownPicker.isHidden = true
     }
-    
-    
-    
     
     // MARK: - Private
     //nil dismisses the view controller
@@ -89,7 +88,7 @@ class AddEditViewController: UIViewController {
         detailsTextField.text = "reset the counter to go again!"
         
         guard let name = nameTextField.text, let str = noteDetailView.text  else {return}
-        let countdown = Countdown(name: name, countdownExistingNotes: str)
+        let countdown = CountdownCodableInfo(name: name, countdownExistingNotes: str)
         delegate?.countdownWasAdded(countdown)
     }
     
@@ -108,6 +107,8 @@ class AddEditViewController: UIViewController {
     private func timerFinished(_ timer: Timer) {
         showAlert()
         self.dismiss(animated: true, completion: nil)
+        createButton.isHidden = false
+        countdownPicker.isHidden = false
     }
     
     private func string(from duration: TimeInterval) -> String {

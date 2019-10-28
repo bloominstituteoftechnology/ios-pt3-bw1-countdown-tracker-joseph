@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8301A35B236762C600A27C18 /* UserCodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8301A35A236762C600A27C18 /* UserCodableData.swift */; };
+		8301A35D236780A100A27C18 /* UserNoteInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8301A35C236780A100A27C18 /* UserNoteInfoController.swift */; };
 		83346963235D4356001F533E /* CountdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346962235D4356001F533E /* CountdownTableViewController.swift */; };
 		83346965235D4364001F533E /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346964235D4364001F533E /* AddEditViewController.swift */; };
 		83346969235D437E001F533E /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346968235D437E001F533E /* CountdownTableViewCell.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8301A35A236762C600A27C18 /* UserCodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCodableData.swift; sourceTree = "<group>"; };
+		8301A35C236780A100A27C18 /* UserNoteInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNoteInfoController.swift; sourceTree = "<group>"; };
 		83346962235D4356001F533E /* CountdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewController.swift; sourceTree = "<group>"; };
 		83346964235D4364001F533E /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		83346968235D437E001F533E /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				83346962235D4356001F533E /* CountdownTableViewController.swift */,
 				83346964235D4364001F533E /* AddEditViewController.swift */,
 				83346968235D437E001F533E /* CountdownTableViewCell.swift */,
+				8301A35C236780A100A27C18 /* UserNoteInfoController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				8345C20A23596662007A197E /* Countdown.swift */,
+				8301A35A236762C600A27C18 /* UserCodableData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,7 +292,9 @@
 			files = (
 				8345C20B23596662007A197E /* Countdown.swift in Sources */,
 				83346965235D4364001F533E /* AddEditViewController.swift in Sources */,
+				8301A35B236762C600A27C18 /* UserCodableData.swift in Sources */,
 				83346963235D4356001F533E /* CountdownTableViewController.swift in Sources */,
+				8301A35D236780A100A27C18 /* UserNoteInfoController.swift in Sources */,
 				83EB4A312357D4FF00893BFF /* AppDelegate.swift in Sources */,
 				83EB4A332357D4FF00893BFF /* SceneDelegate.swift in Sources */,
 				83346969235D437E001F533E /* CountdownTableViewCell.swift in Sources */,
