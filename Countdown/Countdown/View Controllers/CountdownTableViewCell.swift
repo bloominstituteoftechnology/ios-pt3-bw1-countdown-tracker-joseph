@@ -20,7 +20,7 @@ class CountdownTableViewCell: UITableViewCell {
     //FIXME: create update views method
     private func updateViews() {
         guard let countdown = countdown else {return}
-        countdownNameLabel.text = String("Note: \(countdown.name)")
+        countdownNameLabel.text = String("Note: \(countdown.countdownStruct.name)")
     }
 
 }

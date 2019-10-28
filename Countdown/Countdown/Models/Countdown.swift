@@ -15,10 +15,15 @@ protocol CountdownDelegate: AnyObject {
 }
 
 // Enum to track state of countdown
-enum CountdownState {
+enum CountdownState{
     case started // countdown is active and counting down
     case finished // countdown has reached 0 and is not active
     case reset // countdown is at initial time value and not active
+}
+
+struct CountdownCodableValues: Codable, Equatable {
+    var name: String?
+    var countdownExistingNotes: String?
 }
 
 class Countdown {
@@ -32,7 +37,7 @@ class Countdown {
     weak var delegate: CountdownDelegate?
     
     // number of seconds; countdown's starting value
-    var duration: TimeInterval
+    var duration: TimeInterval = 0.0
     
     // derived number of seconds remaining when the countdown is active
     var timeRemaining: TimeInterval {
@@ -43,6 +48,11 @@ class Countdown {
             return 0
         }
     }
+    
+    var countdownStruct: CountdownCodableValues {
+        let CodableValue = CountdownCodableValues(name: name, countdownExistingNotes: countdownExistingNotes)
+        return CodableValue
+      }
     
     // has value only when countdown is active
     // waits a specific period and fires a method on an recurring interval

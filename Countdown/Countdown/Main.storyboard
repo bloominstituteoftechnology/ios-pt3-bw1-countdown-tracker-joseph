@@ -17,14 +17,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountdownCell" id="Gzk-Cr-e1t" customClass="CountdownTableViewCell" customModule="Countdown" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gzk-Cr-e1t" id="qrg-Hg-kNX">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nso-W7-3uu">
-                                            <rect key="frame" x="20" y="10.999999999999998" width="374" height="21.333333333333329"/>
+                                            <rect key="frame" x="20" y="11.000000000000002" width="374" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -121,7 +121,6 @@
                                     <constraint firstItem="oMp-cn-Av3" firstAttribute="leading" secondItem="6vN-VH-MsR" secondAttribute="leading" id="fVG-Og-zuh"/>
                                     <constraint firstAttribute="trailing" secondItem="ARG-Cx-o5Q" secondAttribute="trailing" id="qYf-4M-PrM"/>
                                     <constraint firstItem="oMp-cn-Av3" firstAttribute="top" secondItem="6vN-VH-MsR" secondAttribute="top" id="rFg-04-9KZ"/>
-                                    <constraint firstItem="ARG-Cx-o5Q" firstAttribute="top" secondItem="RlP-97-LDI" secondAttribute="bottom" id="vcb-ZZ-Z0w"/>
                                 </constraints>
                             </stackView>
                         </subviews>

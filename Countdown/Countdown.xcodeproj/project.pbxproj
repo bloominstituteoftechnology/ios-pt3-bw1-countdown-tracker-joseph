@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8301A3592366AA7700A27C18 /* CountdownNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8301A3582366AA7700A27C18 /* CountdownNotesController.swift */; };
 		83346963235D4356001F533E /* CountdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346962235D4356001F533E /* CountdownTableViewController.swift */; };
 		83346965235D4364001F533E /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346964235D4364001F533E /* AddEditViewController.swift */; };
 		83346969235D437E001F533E /* CountdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83346968235D437E001F533E /* CountdownTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8301A3582366AA7700A27C18 /* CountdownNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownNotesController.swift; sourceTree = "<group>"; };
 		83346962235D4356001F533E /* CountdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewController.swift; sourceTree = "<group>"; };
 		83346964235D4364001F533E /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		83346968235D437E001F533E /* CountdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				83346962235D4356001F533E /* CountdownTableViewController.swift */,
 				83346964235D4364001F533E /* AddEditViewController.swift */,
 				83346968235D437E001F533E /* CountdownTableViewCell.swift */,
+				8301A3582366AA7700A27C18 /* CountdownNotesController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				83346963235D4356001F533E /* CountdownTableViewController.swift in Sources */,
 				83EB4A312357D4FF00893BFF /* AppDelegate.swift in Sources */,
 				83EB4A332357D4FF00893BFF /* SceneDelegate.swift in Sources */,
+				8301A3592366AA7700A27C18 /* CountdownNotesController.swift in Sources */,
 				83346969235D437E001F533E /* CountdownTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
