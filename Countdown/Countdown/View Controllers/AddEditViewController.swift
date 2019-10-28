@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AddCountdownDelegate {
+protocol AddCountdownDelegate: class {
     func countdownWasAdded(_ countdown: Countdown)
 }
 
@@ -19,7 +19,8 @@ class AddEditViewController: UIViewController {
     @IBOutlet weak var countdownPicker: UIPickerView!
     @IBOutlet weak var createButton: UIButton!
     
-    var delegate: AddCountdownDelegate?
+    weak var delegate: AddCountdownDelegate?
+    
     private let countdown = Countdown(name: "", details: "")
     
     var dateFormatter: DateFormatter = {
@@ -30,23 +31,26 @@ class AddEditViewController: UIViewController {
     }() //why do we init this at the end?
     
     private var duration: TimeInterval {
-        let minuteString = countdownPicker.selectedRow(inComponent: 0)
-        let secondString = countdownPicker.selectedRow(inComponent: 2)
+        let hourString = countdownPicker.selectedRow(inComponent: 0)
+        let minuteString = countdownPicker.selectedRow(inComponent: 2)
+        let secondString = countdownPicker.selectedRow(inComponent: 4)
         
         let minutes = Int(minuteString)
         let seconds = Int(secondString)
+        let hours = Int(hourString)
         
-        let totalSeconds = TimeInterval(minutes * 60 + seconds)
+        let totalSeconds = TimeInterval((hours * minutes) * 60 + seconds)
         return totalSeconds
     }
     
     lazy private var countdownPickerData: [[String]] = {
         // Create string arrays using numbers wrapped in string values: ["0", "1", ... "60"]
+        let hours: [String] = Array(0...24).map {String($0)}
         let minutes: [String] = Array(0...60).map { String($0) }
         let seconds: [String] = Array(0...59).map { String($0) }
         
         // "min" and "sec" are the unit labels
-        let data: [[String]] = [minutes, ["min"], seconds, ["sec"]]
+        let data: [[String]] = [hours, ["Hrs"], minutes, ["min"], seconds, ["sec"]]
         return data
     }()
     
@@ -55,9 +59,9 @@ class AddEditViewController: UIViewController {
         countdownPicker.dataSource = self
         countdownPicker.delegate = self
         
-        
-        countdownPicker.selectRow(1, inComponent: 0, animated: false)
-        countdownPicker.selectRow(30, inComponent: 2, animated: false)
+        countdownPicker.selectRow(0, inComponent: 0, animated: false)
+        countdownPicker.selectRow(0, inComponent: 2, animated: false)
+        countdownPicker.selectRow(30, inComponent: 4, animated: false)
         
         countdown.duration = duration
         countdown.delegate = self
@@ -69,21 +73,25 @@ class AddEditViewController: UIViewController {
         guard let name = nameTextField.text,
             let details = detailsTextField.text,
             !name.isEmpty else {return}
+        
+        
+        print(name, " " ,details)
         //FIXME: Add arguments for countdown item to have a name and details property.
         let countdown = Countdown(name: name, details: details)
+        
+//        print(countdown.name, countdown.details)
+        
+        
+        
         delegate?.countdownWasAdded(countdown)
-        self.dismiss(animated: true, completion: nil)
+        
+        
+        //dismiss(animated: true, completion: nil)
     }
     
-    /*
-     // MARK: - Navigation
+    
+ 
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     // MARK: - Private
     //nil dismisses the view controller
     private func showAlert() {
@@ -98,7 +106,6 @@ class AddEditViewController: UIViewController {
         switch countdown.state {
         case .started:
             detailsTextField.text = string(from: countdown.timeRemaining)
-            createButton.isEnabled = false
         case .finished:
             detailsTextField.text = string(from: 0)
         case .reset:
