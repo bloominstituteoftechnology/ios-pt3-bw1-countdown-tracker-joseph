@@ -11,7 +11,6 @@ import UIKit
 class CountdownTableViewCell: UITableViewCell {
 
     @IBOutlet weak var countdownNameLabel: UILabel!
-    @IBOutlet weak var timeLeftLabel: UILabel!
     
     var countdown: Countdown? {
         didSet {
@@ -21,9 +20,7 @@ class CountdownTableViewCell: UITableViewCell {
     //FIXME: create update views method
     private func updateViews() {
         guard let countdown = countdown else {return}
-        print("\(countdown.name)")
-        countdownNameLabel.text = countdown.name
-        timeLeftLabel.text = String(countdown.duration)
+        countdownNameLabel.text = String("Note: \(countdown.name)")
     }
 
 }

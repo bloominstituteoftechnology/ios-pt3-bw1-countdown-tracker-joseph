@@ -14,43 +14,42 @@ protocol AddCountdownDelegate: class {
 
 class AddEditViewController: UIViewController {
     
+    
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var detailsTextField: UITextField!
+    @IBOutlet weak var detailsTextField: UILabel!
     @IBOutlet weak var countdownPicker: UIPickerView!
     @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var noteDetailView: UITextView!
     
     weak var delegate: AddCountdownDelegate?
     
-    private let countdown = Countdown(name: "", details: "")
+    private let countdown = Countdown(name: "", countdownExistingNotes: "")
+    
+    var countdownToUse: Countdown?
     
     var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SS"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
-    }() //why do we init this at the end?
+    }()
     
     private var duration: TimeInterval {
-        let hourString = countdownPicker.selectedRow(inComponent: 0)
-        let minuteString = countdownPicker.selectedRow(inComponent: 2)
-        let secondString = countdownPicker.selectedRow(inComponent: 4)
+        let minuteString = countdownPicker.selectedRow(inComponent: 0)
+        let secondString = countdownPicker.selectedRow(inComponent: 2)
         
         let minutes = Int(minuteString)
         let seconds = Int(secondString)
-        let hours = Int(hourString)
         
-        let totalSeconds = TimeInterval((hours * minutes) * 60 + seconds)
+        let totalSeconds = TimeInterval(minutes * 60 + seconds)
         return totalSeconds
     }
     
     lazy private var countdownPickerData: [[String]] = {
-        // Create string arrays using numbers wrapped in string values: ["0", "1", ... "60"]
-        let hours: [String] = Array(0...24).map {String($0)}
         let minutes: [String] = Array(0...60).map { String($0) }
         let seconds: [String] = Array(0...59).map { String($0) }
-        
-        // "min" and "sec" are the unit labels
-        let data: [[String]] = [hours, ["Hrs"], minutes, ["min"], seconds, ["sec"]]
+        let data: [[String]] = [minutes, ["min"], seconds, ["sec"]]
         return data
     }()
     
@@ -58,47 +57,40 @@ class AddEditViewController: UIViewController {
         super.viewDidLoad()
         countdownPicker.dataSource = self
         countdownPicker.delegate = self
-        
         countdownPicker.selectRow(0, inComponent: 0, animated: false)
-        countdownPicker.selectRow(0, inComponent: 2, animated: false)
-        countdownPicker.selectRow(30, inComponent: 4, animated: false)
-        
+        countdownPicker.selectRow(30, inComponent: 2, animated: false)
         countdown.duration = duration
         countdown.delegate = self
-        // Do any additional setup after loading the view.
+        setupViews()
     }
     
-    @IBAction func createButtonPressed(_ sender: UIButton) {
+    func setupViews() {
+        if let countdownToUse = countdownToUse {
+            nameLabel.text = countdownToUse.name
+            nameTextField.isHidden = true
+            detailsTextField.text = "Edit your note here!"
+            noteDetailView.text = countdownToUse.countdownExistingNotes?.description
+        }
+    }
+    
+    @IBAction func startButtonPressed(_ sender: UIButton) {
         countdown.start()
-        guard let name = nameTextField.text,
-            let details = detailsTextField.text,
-            !name.isEmpty else {return}
-        
-        
-        print(name, " " ,details)
-        //FIXME: Add arguments for countdown item to have a name and details property.
-        let countdown = Countdown(name: name, details: details)
-        
-//        print(countdown.name, countdown.details)
-        
-        
-        
-        delegate?.countdownWasAdded(countdown)
-        
-        
-        //dismiss(animated: true, completion: nil)
     }
     
     
- 
-     
+    
+    
     // MARK: - Private
     //nil dismisses the view controller
     private func showAlert() {
         let alert = UIAlertController(title: "Timer Finished!", message: "Your countdown is over", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
-        detailsTextField.text = string(from: countdown.duration)
+        detailsTextField.text = "reset the counter to go again!"
+        
+        guard let name = nameTextField.text, let str = noteDetailView.text  else {return}
+        let countdown = Countdown(name: name, countdownExistingNotes: str)
+        delegate?.countdownWasAdded(countdown)
     }
     
     private func updateViews() {
@@ -115,6 +107,7 @@ class AddEditViewController: UIViewController {
     
     private func timerFinished(_ timer: Timer) {
         showAlert()
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func string(from duration: TimeInterval) -> String {
@@ -123,6 +116,7 @@ class AddEditViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
 }
+    //MARK: Extensions
 
 extension AddEditViewController: CountdownDelegate {
     func countdownDidUpdate(timeRemaining: TimeInterval) {
@@ -134,19 +128,14 @@ extension AddEditViewController: CountdownDelegate {
         showAlert()
     }
 }
-
 extension AddEditViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        //        #warning("Change this to return the number of components for the picker view")
         return countdownPickerData.count
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        //        #warning("Change this to return the number of rows per component in the picker view")
         return countdownPickerData[component].count
     }
 }
-
 extension AddEditViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let timeValue = countdownPickerData[component][row]
