@@ -22,6 +22,13 @@ class CountdownTableViewController: UITableViewController {
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           tableView.reloadData()
+       }
+    
+    func infoFor(indexPath: IndexPath) -> CountdownCodableInfo {
+        return userInfoController.countdownInfo[indexPath.row]
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,6 +39,15 @@ class CountdownTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  userInfoController.countdownInfo.count
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          if editingStyle == .delete {
+              // Delete the row from the data source
+//              bookController.deleteBook(bookFor(indexPath: indexPath))
+            userInfoController.deleteInfo(infoFor(indexPath: indexPath))
+              tableView.deleteRows(at: [indexPath], with: .fade)
+          }
+      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSegue" {
