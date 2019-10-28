@@ -25,6 +25,8 @@ class Countdown {
     
     var name: String?
     var details: String?
+    
+    var dateTime: Date?
     // used to inform delegate of countdown's current state
     // and when countdown has finished
     weak var delegate: CountdownDelegate?
@@ -53,11 +55,14 @@ class Countdown {
     // current state of countdown
     private(set) var state: CountdownState
     
-    init(name: String?, details: String?) {
-        timer = nil
-        stopDate = nil
-        duration = 0
-        state = .reset
+    init(name: String?, details: String?, dateTime: Date? = nil) {
+        self.timer = nil
+        self.stopDate = nil
+        self.duration = 0
+        self.state = .reset
+        self.dateTime = dateTime
+        self.name = name
+        self.details = details
     }
     
     func start() {

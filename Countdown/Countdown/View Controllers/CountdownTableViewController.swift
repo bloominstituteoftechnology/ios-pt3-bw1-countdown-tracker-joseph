@@ -18,7 +18,9 @@ class CountdownTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,24 +32,48 @@ class CountdownTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return countdownList.count
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  countdownList.count
+    }
+    
+    //FIXME: prepare for segue, with delgations patterns
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddSegue" {
+            if let addCountdownVC = segue.destination as? AddEditViewController {
+                addCountdownVC.delegate = self
+                
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountdownCell", for: indexPath) as? CountdownTableViewCell else { return  UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountdownCell", for: indexPath) as? CountdownTableViewCell else { return UITableViewCell() }
         let countdown = countdownList[indexPath.row]
         cell.countdown = countdown
-        return cell
+    cell.countdownNameLabel.text = countdownList[indexPath.row].name
+        //cell.countdownNameLabel.text  = "it works"
+        cell.timeLeftLabel.text = String(countdownList[indexPath.row].duration)
+            return cell
     }
+
 
 }
 
 extension CountdownTableViewController: AddCountdownDelegate {
     func countdownWasAdded(_ countdown: Countdown) {
+        print("\(countdown)")
         countdownList.append(countdown)
+        print("\(countdown.name)")
+        print("\(countdown.duration)")
+          tableView.reloadData()
         dismiss(animated: true, completion: nil)
-        tableView.reloadData()
+      
     }
+    
     
     
 }

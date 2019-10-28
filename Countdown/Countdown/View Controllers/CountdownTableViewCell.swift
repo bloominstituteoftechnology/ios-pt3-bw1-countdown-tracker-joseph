@@ -21,6 +21,7 @@ class CountdownTableViewCell: UITableViewCell {
     //FIXME: create update views method
     private func updateViews() {
         guard let countdown = countdown else {return}
+        print("\(countdown.name)")
         countdownNameLabel.text = countdown.name
         timeLeftLabel.text = String(countdown.duration)
     }
